@@ -2,6 +2,7 @@
 
 #include "headers/game.h"
 #include "headers/areagrids.h"
+#include "headers/buildings.h"
 
 void init_city(char name[16], int size)
 {

@@ -16,7 +16,23 @@ void place_building(int building_identifier, int building_width, int building_he
 	// TODO
 }
 
+// this function checks for any possible overlaps and prints a message if there are any overlaps found
 void check_space(int building_width, int building_height, int pos_x, int pos_y)
 {
-	// TODO
+	int overlap_points = 0;
+	for (int i = pos_x; i <= building_width; i++)
+	{
+		for (int j = pos_y; j <= building_height; j++)
+		{
+			if (area_grid_city[i][j] != 0)
+			{
+				overlap_points++;
+			}
+		}
+	}
+
+	if (overlap_points != 0)
+	{
+		printf("Cannot place the building here! There is overlap in total of %d points!\n", overlap_points);
+	}
 }
