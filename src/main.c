@@ -31,21 +31,24 @@ void init()
 	}
 	else if (strcmp(userchoice, "town") == 0)
 	{
-		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
-		scanf("%s", &name);
-		init_town(name, 30);
+		printf("Can't play it yet. Game is still in design.\n");
+		// printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		// scanf("%s", &name);
+		// init_town(name, 30);
 	}
 	else if (strcmp(userchoice, "village") == 0)
 	{
-		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
-		scanf("%s", &name);
-		init_village(name, 20);
+		printf("Can't play it yet. Game is still in design.\n");
+		// printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		// scanf("%s", &name);
+		// init_village(name, 20);
 	}
 	else if (strcmp(userchoice, "settlement") == 0)
 	{
-		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
-		scanf("%s", &name);
-		init_settlement(name, 10);
+		printf("Can't play it yet. Game is still in design.\n");
+		// printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		// scanf("%s", &name);
+		// init_settlement(name, 10);
 	}
 
 	// PLACING BUILDINGS: give the coordinates on the grid, and the top left corner of the building will be placed there

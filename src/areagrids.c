@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "headers/areagrids.h"
 
 // 0 nothing; 1 mainsquare; 2 cityhall; 3 hospital; 4 policestation; 5 firedeptstation; 6 housingblock; 7 singlehouse
@@ -121,4 +123,16 @@ char *area_type[4][2] = {
 void generate_area_grid(int size)
 {
 	// TODO
+}
+
+void show_grid(int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			printf("%d ", area_grid_city[i][j]);
+		}
+		printf("\n");
+	}
 }
