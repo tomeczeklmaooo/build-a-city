@@ -3,6 +3,25 @@
 #include "headers/buildings.h"
 #include "headers/areagrids.h"
 
+char *buildings[][1] = {
+	{"Main Square"},
+	{"City Hall"},
+	{"Hospital"},
+	{"Police Station"},
+	{"Fire Dept Station"},
+	{"Housing Block"},
+	{"Single House"}
+};
+int building_size[][2] = {
+	{5, 5},
+	{3, 2},
+	{3, 2},
+	{3, 2},
+	{2, 2},
+	{2, 1},
+	{1, 1}
+};
+
 // this function places a building on the grid (wow that's crazy)
 void place_building(int building_identifier, int building_width, int building_height, int pos_x, int pos_y)
 {
@@ -64,4 +83,5 @@ int get_building_choice(int choice)
 		scanf("%d", &input_pos_y);
 		return input_pos_y;
 	}
+	return 0;
 }

@@ -17,16 +17,15 @@ void init()
 
 	char userchoice[] = "";
 	char name[16] = "";
-	int buildingchoice;
 
 	printf("Choose the type of your area [City, Town, Village, Settlement]: ");
-	scanf("%s", &userchoice);
+	scanf("%s", (char*)&userchoice);
 	strncpy(userchoice, toLower(userchoice), sizeof(userchoice));
 
 	if (strcmp(userchoice, "city") == 0)
 	{
 		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
-		scanf("%s", &name);
+		scanf("%s", (char*)&name);
 		init_city(name, 40);
 	}
 	else if (strcmp(userchoice, "town") == 0)
