@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "headers/buildings.h"
+#include "headers/areagrids.h"
 
 buildings building_MainSquare = {"Main Square", 1, 5, 5};
 buildings building_CityHall = {"City Hall", 2, 3, 2};
@@ -12,10 +13,10 @@ buildings building_SingleHouse = {"Single House", 7, 1, 1};
 
 void place_building(int building_identifier, int building_width, int building_height, int pos_x, int pos_y)
 {
-	//
+	// TODO
 }
 
-void check_space()
+void check_space(int building_width, int building_height, int pos_x, int pos_y)
 {
-	//
+	// TODO
 }

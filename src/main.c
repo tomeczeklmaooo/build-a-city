@@ -4,7 +4,7 @@
 #include <time.h>
 #include <ctype.h>
 
-// #include "headers/areagrids.h"
+#include "headers/game.h"
 #include "headers/buildings.h"
 #include "headers/tstring.h"
 #include "headers/constants.h"
@@ -16,6 +16,7 @@ void init()
 	printf("City Builder Game\n");
 
 	char userchoice[] = "";
+	char name[16] = "";
 	int buildingchoice;
 
 	printf("Choose the type of your area [City, Town, Village, Settlement]: ");
@@ -24,27 +25,27 @@ void init()
 
 	if (strcmp(userchoice, "city") == 0)
 	{
-		// printf("%s (Grid size: %s)\n", area_type[0][0], area_type[0][1]);
-		// printf("\nBuildings available:\n");
-		// for (int i = 0; i < (sizeof(buildings_city) / 16); i++)
-		// {
-		// 	printf("[%d] %s (%s)\n", i + 1, buildings_city[i][0], buildings_city[i][1]);
-		// }
-		// printf("\nPick a building [1 to %d]: ", ((int)sizeof(buildings_city) / 16));
-		// scanf("%d", &buildingchoice);
-		// printf("You chose %s with size of %s", buildings_city[buildingchoice - 1][0], buildings_city[buildingchoice - 1][1]);
+		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		scanf("%s", &name);
+		init_city(name, 40);
 	}
 	else if (strcmp(userchoice, "town") == 0)
 	{
-		// printf("%s (Grid size: %s)\n", area_type[1][0], area_type[1][1]);
+		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		scanf("%s", &name);
+		init_town(name, 30);
 	}
 	else if (strcmp(userchoice, "village") == 0)
 	{
-		// printf("%s (Grid size: %s)\n", area_type[2][0], area_type[2][1]);
+		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		scanf("%s", &name);
+		init_village(name, 20);
 	}
 	else if (strcmp(userchoice, "settlement") == 0)
 	{
-		// printf("%s (Grid size: %s)\n", area_type[3][0], area_type[3][1]);
+		printf("Choose a name for your %s [max. 16 chars]: ", userchoice);
+		scanf("%s", &name);
+		init_settlement(name, 10);
 	}
 
 	// PLACING BUILDINGS: give the coordinates on the grid, and the top left corner of the building will be placed there
