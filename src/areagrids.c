@@ -120,9 +120,18 @@ char *area_type[4][2] = {
 	{"Settlement", "10x10"}
 };
 
-void generate_area_grid(int size)
+// something like this should work (needs testing)
+char* generate_area_grid(int size)
 {
-	// TODO
+	char *area_grid[size][size];
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			*area_grid[i][j] = '*';
+		}
+	}
+	return area_grid[size][size];
 }
 
 void show_grid(int size)
