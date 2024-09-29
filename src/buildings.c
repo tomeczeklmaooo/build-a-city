@@ -3,6 +3,7 @@
 #include "headers/buildings.h"
 #include "headers/areagrids.h"
 
+// building arrays
 char *buildings[][1] = {
 	{"Main Square"},
 	{"City Hall"},
@@ -14,12 +15,43 @@ char *buildings[][1] = {
 };
 int building_size[][2] = {
 	{5, 5},
-	{3, 2},
+	{3, 3},
 	{3, 2},
 	{3, 2},
 	{2, 2},
 	{2, 1},
 	{1, 1}
+};
+
+char building_ascii_mainsquare[5][5] = {
+	{'+', '-', '-', '-', '+'},					// + - - - +
+	{'|', ' ', ' ', ' ', '|'},					// |       |
+	{'|', ' ', ' ', ' ', '|'},                  // |       |
+	{'|', ' ', ' ', ' ', '|'},                  // |       |
+	{'+', '-', '-', '-', '+'}                   // + - - - +
+};
+char building_ascii_cityhall[3][3] = {
+	{'+', '-', '+'},							// + - +
+	{'|', ' ', '|'},							// |   |
+	{'+', '-', '+'}								// + - +
+};
+char building_ascii_hospital[2][3] = {
+	{'+', '-', '+'},							// + - +
+	{'+', '-', '+'}								// + - +
+};
+char building_ascii_policestation[2][3] = {
+	{'+', '-', '+'},							// + - +
+	{'+', '-', '+'}								// + - +
+};
+char building_ascii_firedeptstation[2][2] = {
+	{'+', '+'},									// + +
+	{'+', '+'}									// + +
+};
+char building_ascii_housingblock[1][2] = {
+	{'[', ']'}									// [ ]
+};
+char building_ascii_singlehouse[1][1] = {
+	{'X'}										// X
 };
 
 // this function places a building on the grid (wow that's crazy)
@@ -42,11 +74,11 @@ void place_building(int building_identifier, int building_width, int building_he
 bool check_space(int building_width, int building_height, int pos_x, int pos_y)
 {
 	int overlap_points = 0;
-	for (int i = pos_x; i <= building_width; i++)
+	for (int i = 0; i < building_width; i++)
 	{
-		for (int j = pos_y; j <= building_height; j++)
+		for (int j = 0; j < building_height; j++)
 		{
-			if (area_grid_city[i][j] != 0)
+			if (area_grid_city[pos_x + i][pos_y + j] != 0)
 			{
 				overlap_points++;
 			}
@@ -73,13 +105,13 @@ int get_building_choice(int choice)
 	}
 	else if (choice == 1)
 	{
-		printf("Choose a column [1-40]: ");
+		printf("Choose a row [1-40]: ");
 		scanf("%d", &input_pos_x);
 		return input_pos_x;
 	}
 	else if (choice == 2)
 	{
-		printf("Choose a row [1-40]: ");
+		printf("Choose a column [1-40]: ");
 		scanf("%d", &input_pos_y);
 		return input_pos_y;
 	}
