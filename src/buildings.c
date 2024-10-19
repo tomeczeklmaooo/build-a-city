@@ -24,34 +24,34 @@ int building_size[][2] = {
 };
 
 char building_ascii_mainsquare[5][5] = {
-	{'+', '-', '-', '-', '+'},					// + - - - +
-	{'|', ' ', ' ', ' ', '|'},					// |       |
-	{'|', ' ', ' ', ' ', '|'},                  // |       |
-	{'|', ' ', ' ', ' ', '|'},                  // |       |
-	{'+', '-', '-', '-', '+'}                   // + - - - +
+	{'#', '#', '#', '#', '#'},					// # # # # #
+	{'#', ' ', ' ', ' ', '#'},					// #       #
+	{'#', ' ', ' ', ' ', '#'},                  // #       #
+	{'#', ' ', ' ', ' ', '#'},                  // #       #
+	{'#', '#', '#', '#', '#'}                   // # # # # #
 };
 char building_ascii_cityhall[3][3] = {
-	{'+', '-', '+'},							// + - +
-	{'|', ' ', '|'},							// |   |
-	{'+', '-', '+'}								// + - +
+	{'#', '#', '#'},							// # # #
+	{'#', ' ', '#'},							// #   #
+	{'#', '#', '#'}								// # # #
 };
 char building_ascii_hospital[2][3] = {
-	{'+', '-', '+'},							// + - +
-	{'+', '-', '+'}								// + - +
+	{'#', '#', '#'},							// # # #
+	{'#', '#', '#'}								// # # #
 };
 char building_ascii_policestation[2][3] = {
-	{'+', '-', '+'},							// + - +
-	{'+', '-', '+'}								// + - +
+	{'#', '#', '#'},							// # # #
+	{'#', '#', '#'}								// # # #
 };
 char building_ascii_firedeptstation[2][2] = {
-	{'+', '+'},									// + +
-	{'+', '+'}									// + +
+	{'#', '#'},									// # #
+	{'#', '#'}									// # #
 };
 char building_ascii_housingblock[1][2] = {
-	{'[', ']'}									// [ ]
+	{'#', '#'}									// # #
 };
 char building_ascii_singlehouse[1][1] = {
-	{'X'}										// X
+	{'#'}										// #
 };
 
 // this function places a building on the grid (wow that's crazy)
@@ -73,6 +73,7 @@ void place_building(int building_identifier, int building_width, int building_he
 // false if can't be placed; true if can be placed
 bool check_space(int building_width, int building_height, int pos_x, int pos_y)
 {
+	// check for possible overlaps
 	int overlap_points = 0;
 	for (int i = 0; i < building_width; i++)
 	{
@@ -88,6 +89,13 @@ bool check_space(int building_width, int building_height, int pos_x, int pos_y)
 	if (overlap_points != 0)
 	{
 		printf("Cannot place the building here! There is overlap in total of %d points!\n", overlap_points);
+		return false;
+	}
+
+	// check for grid edges
+	if (pos_x + building_width > 40 || pos_y + building_height > 40)
+	{
+		printf("Cannot place the building here! Buildings cannot be placed beyond grid edges!\n");
 		return false;
 	}
 
